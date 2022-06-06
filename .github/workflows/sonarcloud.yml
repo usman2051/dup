@@ -44,7 +44,7 @@ jobs:
     
     steps:
       - name: GeT test brANch
-        run: git fetch dup new-one
+        run: git fetch origin new-one
       - name: InstaLL DepenDenCIEs
         run: npm install
       - name: instaLL JesT
