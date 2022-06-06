@@ -30,9 +30,9 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: [ "beta-test" ]
+    branches: [ "new-one" ]
   pull_request:
-    branches: [ "beta-test" ]
+    branches: [ "new-one" ]
   workflow_dispatch:
 
 permissions:
@@ -43,6 +43,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: GeT test brANch
+        run: git fetch dup new-one
+      - name: InstaLL DepenDenCIEs
+        run: npm install
+      - name: instaLL JesT
+        run: sudo npm install -g jest
+      - name: run some Tests
+        run: npm run test
+
       - name: Analyze with SonarCloud         
 
         # You can pin the exact commit or the version.
@@ -56,8 +65,8 @@ jobs:
           args:             
             # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
             # mandatory
-            -Dsonar.projectKey=
-            -Dsonar.organization=
+            -Dsonar.projectKey=usman2051_dup
+            -Dsonar.organization=usman2051
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory
             # When you need the analysis to take place in a directory other than the one from which it was launched
